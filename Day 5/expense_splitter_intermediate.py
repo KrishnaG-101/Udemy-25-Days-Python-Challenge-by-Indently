@@ -1,9 +1,11 @@
 # This is version 3.0 of expense splitter program which  can be used to split expense/bill between number of people
 # Changes from previous version:
 # Added .strip() function to inputs
-# Added the display of % split remaining to distribute
-# Added the .lower() and .capitalize() to handle inaccuracies with names.
-# Updated the flow of Step 3. in order to make the display of % efficiently and ensure consistency in values
+# Added the .lower() and .capitalize() to handle inaccuracies with names and split_perc
+# Added the display of split remaining % to distribute in Step 3. of taking user input
+# Updated the flow of Step 3. in order to make the display of remaining % efficiently and ensure consistency in values
+# Update formated string literals for better visual consistency
+# Improved naming of few variables
 
 import sys
 
@@ -53,20 +55,20 @@ remaining_perc : float = 100.0
 print("\n3. Enter percentage of expense each individual has to bear (Enter \"even\" to split evenly):")
 
 for participant in split_participants:
-    split_division_perc : str = input(f"[{remaining_perc:.0f}% remaining] Enter the split percentage for {participant.capitalize():8}: ").strip()
+    split_perc : str = input(f"[{remaining_perc: >3.0f}% remaining] Enter the split percentage for {participant.capitalize():8}: ").strip().lower()
     
     # Adding functionality to divide the expense evenly directly using one word.
-    if split_division_perc == "even":
+    if split_perc == "even":
         # Utilizing list comprehension technique and update function to add key-value pairs to dictionary.
         split_divisions.update([(participant, (total_bill_amount/counter)) for participant in split_participants])
         break
     
     # Using shorthand if-else to check if the percentage entered for a participant is correct and numeric then changing to float.
-    split_division_perc_float : float = float(split_division_perc) if split_division_perc.isnumeric() else 0
+    split_perc_float : float = float(split_perc) if split_perc.isnumeric() else 0
     
-    # Calculating and adding the share amount for individuals to split_divisions dictionary
-    split_divisions.setdefault(participant, (split_division_perc_float * total_bill_amount / 100) )
-    remaining_perc -= split_division_perc_float
+    # Calculating and adding the share amount for individuals to split_divisions dictionary.
+    split_divisions.setdefault(participant, (split_perc_float * total_bill_amount / 100) )
+    remaining_perc -= split_perc_float
 
 
 # Calculation and Display
@@ -79,12 +81,3 @@ for participant, split_share in split_divisions.items():
     print(f"{participant.capitalize():12}:      \u20B9{split_share:.2f}")
 
 print("\n" + "=" * 50 + "\n")
-
-# Printing variables to check
-# print(total_bill_amount)
-# print(split_participants)
-# print(counter)
-# print(split_divisions)
-# print(remaining_perc)
-# print(split_division_perc)
-# print(split_division_perc_float)
