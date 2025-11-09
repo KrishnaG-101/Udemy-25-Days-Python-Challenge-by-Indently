@@ -1,0 +1,9 @@
+Types of operators in python: Arithmetic, Assignment, Comparison, Logical, Bitwise, Identity and Membership Operators.
+Arithmetic operators -> +   -   *   /   //   %   **   used to perform arithmetic operations
+Assignment operators -> = and inplace assignment (+= -= *= /= //= %= **= |= etc.)  used to assign value to a variable.
+Comparison operators -> ==  !=  >  <  >=  <=          used to compare values of objects.
+Logical    operators -> and  or  not                  used to combine conditionals.
+Indentity  operators -> is  is not                    used to compare identity of objects.
+Membership operators -> in  not in                    used to check whether a value is present in a sequence or not.
+
+Operator chaining: 10 > x > 0
