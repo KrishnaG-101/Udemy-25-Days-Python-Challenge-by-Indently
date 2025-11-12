@@ -1,0 +1,7 @@
+Functions introduce modularity and reusability to our codebase.
+
+Avoid rewriting the same code in the file or copy - pasting the same things to avoid bugs.
+
+Parameters, Arguments, Default Parameters, Order of Default Parameters and Keyword Arguments.
+
+Recursion is a great concept to know, but it is memory intensive and should be used carefully. Master Recursion.
