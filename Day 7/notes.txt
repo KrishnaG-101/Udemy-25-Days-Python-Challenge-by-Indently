@@ -1,0 +1,15 @@
+Used in functions: *args converts non-keyword arguments into a tuple, while **kwargs convert keyword arguments into a dictionary.
+*args     ->   *[parameter_name]  => Tuple  
+**kwargs  ->  **[parameter_name]  => Dictionary
+
+If we use *args and **kwargs, then we will have to pass every other argument with its keyword specified.
+
+We can use *args and **kwargs together inside a function but *args must come before **kwargs.
+
+We can unpack collections inside functions which have *args and **kwargs as parameters using the preceding * and ** operators. We can even unpack argument values for normal parameters using this method.
+
+*args and **kwargs have a very diverse usage.
+
+We can also use / and * in function definitions. Every argument (for each parameter) before / must be passed as a positional argument, and every argument (for each parameter) after * must be passed as a keyword argument.
+
+For parameters in between / and * we can use both positional or keyword approach of passing the argument to the function.

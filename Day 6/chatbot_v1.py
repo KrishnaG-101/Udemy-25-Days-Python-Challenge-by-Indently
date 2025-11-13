@@ -70,9 +70,7 @@ if __name__ == "__main__":
     while True:
         user_prompt : str = input("You: ")
         
-        response : str = chatbot(prompt = user_prompt)
-        
-        print(f"Nina: {response}\n")
+        print(f"Nina: {chatbot(prompt = user_prompt)}\n")
         
         if contains(["exit", "bye", "goodbye", "see you tomorrow", "have a nice day"], user_prompt):
             break
