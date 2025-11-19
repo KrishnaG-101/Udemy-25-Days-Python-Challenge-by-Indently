@@ -114,7 +114,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-
-# The code lacks annotation and function definitions (doc string)
-# Things to fix, change the display to encorporate the entered amount with its currency, make LIST correct to only display the currency tickers, annotate the file.
