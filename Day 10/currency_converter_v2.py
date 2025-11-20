@@ -15,11 +15,11 @@ def load_conversion_rates() -> dict[str, float] | None:
             # loading the JSON into a dictionary, and returning it, if there is no error.
             currencies : dict[str, float] = json.load(file)
         return currencies
-    except FileNotFoundError as Error:
-        print(f"The file cannot be found in your working directory.\n{Error}")
+    except FileNotFoundError as error:
+        print(f"The file cannot be found in your working directory.\n{error}")
         return None
-    except json.JSONDecodeError as Error:
-        print(f"The file contains invalid JSON format.\n{Error}")
+    except json.JSONDecodeError as error:
+        print(f"The file contains invalid JSON format.\n{error}")
         return None
     
 def convert(exchange_rates : dict[str, float], currency: str = "USD", amount : float = 1) -> dict[str, float]:
@@ -106,8 +106,8 @@ def main() -> None:
                     # Final display
                     print(f"\nConversion of {amount_input:.2f} {currency_input} to other currencies:")    # For printing the input amount and currency in a presentable format.
                     display_converted_table(convert(exchange_rate_table, currency=currency_input, amount=amount_input))    # This will print the output.
-                except (ValueError, IndexError) as Error:
-                    print(f"\n{Error}\nPlease enter the amount and currency ticker in correct format.")
+                except (ValueError, IndexError) as error:
+                    print(f"\n{error}\nPlease enter the amount and currency ticker in correct format.")
                 
     return None
         
