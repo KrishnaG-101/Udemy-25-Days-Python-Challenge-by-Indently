@@ -31,6 +31,7 @@ def display_options() -> None:
 def display_inventory(cars : list[Car]) -> None:
     cars_details : list[tuple[str, str, str, float]] = [(car.brand, car.model, car.color, car.price) for car in cars]
     inventory_counter : Counter[tuple[str, str, str, float]] = (Counter(cars_details))
+    
     print("-"*28)
     print("Inventory:")
     for (brand, model, color, price), count in inventory_counter.items():
@@ -80,10 +81,10 @@ def main() -> None:
                     return None
                 case _:
                     raise ValueError("Input out of range")
-                    
+                
         except ValueError as error:
             print(f"\n{error}. Please enter choice in digits and in range.")
-         
+    
 
 if __name__ == "__main__":
     main()

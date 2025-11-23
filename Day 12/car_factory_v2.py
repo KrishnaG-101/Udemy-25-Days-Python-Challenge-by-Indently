@@ -32,12 +32,11 @@ def display_options() -> None:
 def display_inventory(cars : dict[Car, int]) -> None:
     print("\nInventory:")
     print("-"*28)
-    for car_type, count in cars.items():
-        print(f"{car_type.brand.capitalize()} {car_type.model.capitalize()} [{car_type.color}] [\u20B9{car_type.price:,}]: {count} in stock")
+    for car_object, count in cars.items():
+        print(f"{car_object.brand.capitalize()} {car_object.model.capitalize()} [{car_object.color}] [\u20B9{car_object.price:,}]: {count} in stock")
     print("-"*28)
 
-def create_cars() -> dict[Car, int]:
-    cars_dict : dict[Car, int] = dict()
+def create_cars(cars : dict[Car, int]) -> None:
     print("\nCarefully enter details for the following:")
     try:
         # Taking Inputs
@@ -48,23 +47,28 @@ def create_cars() -> dict[Car, int]:
         production_input : int = int(input("Enter number of Units to produce: "))
         
         # check if same car already exists, if does then update the count, else create a new entry.
-        if any([True if (car.brand == brand_input and car.model == model_input and car.color == color_input and car.price == price_input) else False for car in cars_dict.keys()]):
-            # Increases count if car already exists
-            cars_dict[Car(brand_input, model_input, color_input, price_input)] += production_input
+        for car in cars.keys():
+            if (car.brand == brand_input and car.model == model_input and car.color == color_input and car.price == price_input):
+                # Increases count if car already exists
+                cars[car] += production_input
+                break
         else:
-            cars_dict.setdefault(Car(brand_input, model_input, color_input, price_input), production_input)
+            cars.setdefault(Car(brand_input, model_input, color_input, price_input), production_input)
+        
+        print(f"\n{production_input} {color_input} {brand_input} {model_input} cars created successfully.")
         
     except ValueError as error:
         # This will handle any errors that may occur while taking the inputs.
-        print(f"{error}. Enter details correctly in digits.")
+        print(f"\n{error}. Enter details correctly in digits.")
         
-    return cars_dict
+    return None
     
-def sell_cars(inventory : dict[Car, int]) -> float:
+def sell_cars(cars : dict[Car, int]) -> float:
     # Check stock, if it has that many cars of that brand and model that can be sold
     # if yes then sell and add the amount earned to the bank else let the user know.
     sales : float = 0
     print("\nCarefully enter details for the following:")
+    
     try:
         # Taking Inputs
         brand_input : str = input("Enter Brand Name: ").lower().strip()
@@ -72,24 +76,27 @@ def sell_cars(inventory : dict[Car, int]) -> float:
         color_input : str = input("Enter Color: ").lower().strip()
         units_input : int = int(input("Enter number of Units to sell: "))
         
-        for car_type, count in inventory.items():
+        for car_object, count in cars.items():
             # Checking if any of the car meets such details.
-            if car_type.brand == brand_input and car_type.model == model_input and car_type.color == color_input:
+            if (car_object.brand == brand_input and car_object.model == model_input and car_object.color == color_input):
                 # If car with such details is found, then we check if we have enough units to sell.
                 if count >= units_input:
                     # If yes then we sell the units from the inventory and return the total amount earned.
-                    inventory[car_type] -= units_input
-                    sales += units_input * car_type.price
+                    cars[car_object] -= units_input
+                    sales += units_input * car_object.price
+                    print(f"\n{units_input} {color_input} {brand_input} {model_input} cars sold successfully. Profit: \u20B9{sales:,}")
                 else:
                     # Else we let the user know that we do not have enough units.
-                    print("Not enough units in the Inventory.")
+                    print("\nNot enough units in the Inventory.")
+                
+                break
         else:
             # If no such car is found in the entire dictionary, then we print this.
-            print("Car with such details is not found in the Inventory.")
+            print("\nCar with such details is not found in the Inventory.")
         
     except ValueError as error:
         # This is to handle any error that may occur while taking input.
-        print(f"{error}. Enter details correctly in digits.")
+        print(f"\n{error}. Enter details correctly in digits.")
     
     return sales
 
@@ -118,35 +125,25 @@ def main() -> None:
                 case 1:
                     display_inventory(cars=cars_inventory)
                 case 2:
-                    print(f"\nBank Balance: \u20B9{bank_balance}")
+                    print(f"\nBank Balance: \u20B9{bank_balance:,}")
                 case 3:
-                    temp : dict[Car, int] = create_cars()
-                    print()
-                    print(temp)
-                    print(f"{temp.keys()}")
-                    print(f"{[(car.brand, car.model, car.color, car.price) for car in temp.keys()]}")
-                    cars_inventory.update(temp)
-                    print()
-                    print(cars_inventory)
-                    print(f"{cars_inventory.keys()}")
-                    print(f"{[(car.brand, car.model, car.color, car.price) for car in cars_inventory.keys()]}")
+                    create_cars(cars=cars_inventory)
+                    
                 case 4:
-                    bank_balance += sell_cars(cars_inventory)
+                    bank_balance += sell_cars(cars=cars_inventory)
                 case 5:
-                    print(f"\nEOD Bank Balance: \u20B9{bank_balance}")
+                    # Add code to ask confirmation before exiting.
+                    print(f"\nEOD Bank Balance: \u20B9{bank_balance:,}")
                     print("\nThank you for using the program.\n")
                     return None
                 case _:
                     raise ValueError("Input out of range")
                     
         except ValueError as error:
-            print(f"{error}. Please enter choice in digits and in range.")
+            print(f"\n{error}. Please enter choice in digits and in range.")
     
 
 if __name__ == "__main__":
     main()
-    
-# The task of create_cars() is too memory intensive, and unnecessarily redundant, replace that with a tuple, and we won't need a counter as well.
 
-# This is buggy code as the create_cars function works but not as intended, as we are creating a new object in both conditions.
-# I know what's wrong but saving this code just to remember the problems.
+# There are a lot of improvement require, also annotations and doc strings.
