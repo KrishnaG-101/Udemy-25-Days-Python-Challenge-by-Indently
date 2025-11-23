@@ -1,0 +1,10 @@
+OOP focuses on creating high reusable objects and classes that conserve their state.
+
+Class    => Blueprint to create objects, contains attributes and methods.
+Object   => Instances of class with their own data and state.
+__init__ => Initialization function, determines what to do when an object is being initialized. Always returns None.
+self     => It refers to the Instance itself, it is automatically passed when working with an object, it reflects the current state of the object and helps bind attributes to the object.
+
+Generally we name classes in pascal-case without using underscores (_).
+
+Code becomes more organized and manageable with the use of classes and objects.
