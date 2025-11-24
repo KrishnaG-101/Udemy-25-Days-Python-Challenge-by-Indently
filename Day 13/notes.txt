@@ -1,0 +1,24 @@
+Instance attributes are variables which are associated with an instance, the value for these variables are unique for each instance and these are initialized using the init function.
+e.g. self.brand is an instance attribute, which will be created for each instance that we initialize.
+
+Class attributes are variables defined for the whole class and these are shared among the instances of the class, unlike Instance attributes. These are like global scope variables for the class and its instances.
+e.g. [CLASS_NAME].[attribute] is the syntax to access a variable through class directly, it can also be access through instances.
+
+Make sure to change the class attributes only using the class name and not any instance, otherwise that will just create a new instance attribute for that instance and will override the class attribute for that instance alone.
+
+Dunder methods or Magic Methods are special methods which are automatically called in the right context.
+When we are using the class inside the class declaration of itself, we are forward referencing: 'Number'
+
+__repr__ => used to create representation for the programmer (used to convey the information using which object can be recreated or replicated).
+__str__  => used to create representation for the user (easy to read and understand).
+
+__str__ is prioritized over __repr__ method in many cases like print() function.
+
+
+__eq__ dunder method is used to determine how two object of the same class are compared together.
+id() function returns the id (assigned by python to value) of a variable,
+type() function returns the class to which a variable belongs,
+repr() function returns the representation of class,
+print() function prints the string version of a varible or value.
+
+There are many different dunder methods for different tasks (__add__, __mul__, etc).
