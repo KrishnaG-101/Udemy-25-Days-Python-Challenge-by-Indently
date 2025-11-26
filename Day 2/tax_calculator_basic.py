@@ -1,11 +1,11 @@
 # This program is used to calculate tax to be paid by the user, but it has only basic functionalities.
 
 # Inputs
-base_income = float(input("Enter your annual base income: "))
-TAX_RATE = 10
+base_income : float = float(input("Enter your annual base income: "))
+TAX_RATE : int = 10
 
 # Calculations
-tax_amount = base_income * TAX_RATE / 100
+tax_amount : float = base_income * TAX_RATE / 100
 
 # Display
 print("=" * 40)
