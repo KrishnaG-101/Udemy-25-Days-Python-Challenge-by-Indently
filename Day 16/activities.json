@@ -1,7 +1,7 @@
 [
   {
     "activity": "Movie Night",
-    "type": "entertainment",
+    "type": "indoor",
     "cost": 15,
     "people": 4
   },
@@ -13,15 +13,15 @@
   },
   {
     "activity": "Escape Room",
-    "type": "adventure",
-    "cost": 50,
+    "type": "outdoor",
+    "cost": 20,
     "people": 4
   },
   {
     "activity": "Board Games",
     "type": "indoor",
     "cost": 10,
-    "people": 6
+    "people": 4
   },
   {
     "activity": "Picnic",
@@ -34,5 +34,29 @@
     "type": "indoor",
     "cost": 25,
     "people": 2
+  },
+  {
+    "activity": "Football",
+    "type": "outdoor",
+    "cost": 20,
+    "people": 8
+  },
+  {
+    "activity": "Badminton",
+    "type": "indoor",
+    "cost": 15,
+    "people": 2
+  },
+  {
+    "activity": "Arcade",
+    "type": "indoor",
+    "cost": 10,
+    "people": 1
+  },
+  {
+    "activity": "Casino",
+    "type": "indoor",
+    "cost": 50,
+    "people": 1
   }
 ]
