@@ -1,0 +1,38 @@
+[
+  {
+    "activity": "Movie Night",
+    "type": "entertainment",
+    "cost": 15,
+    "people": 4
+  },
+  {
+    "activity": "Hiking",
+    "type": "outdoor",
+    "cost": 0,
+    "people": 2
+  },
+  {
+    "activity": "Escape Room",
+    "type": "adventure",
+    "cost": 50,
+    "people": 4
+  },
+  {
+    "activity": "Board Games",
+    "type": "indoor",
+    "cost": 10,
+    "people": 6
+  },
+  {
+    "activity": "Picnic",
+    "type": "outdoor",
+    "cost": 5,
+    "people": 3
+  },
+  {
+    "activity": "Cooking Class",
+    "type": "indoor",
+    "cost": 25,
+    "people": 2
+  }
+]

@@ -1,0 +1,23 @@
+# Today we will learn about built-in functions in python.
+
+1. Enumerate: enumerate() function allows us to enumerate over a collection. It returns an Iterator (typing module) object.
+              It creates an object containing tuples of items and their respective position in the collection, in this manner [(0, Item1), (1, Item 2)].
+              We can use enumerate for different number of reasons, one of which is to print a collection of items in a number ordered fashion.
+              We can also specify the starting number using the start= argument.
+              An enumerate object can only be consumed once.
+
+2. Round: round() function is used to round a number to given nearest decimal places.
+          If not supplied an argument for decimal places it will round the number to nearest integer number.
+          It can also take negative argument for decimal places to round the integer number to nearest zeros.
+          It uses the banker's rounding technique, i.e. If completely centered the number will rounded to nearest even number.
+          e.g. round(1.51) -> 2, round(1.49) -> 1, round(1.5) -> 2 and round(2.5) -> 2.
+
+3. Range: range() function is used to create a range of numbers. It creates a range object.
+          Syntax: range(start, end, step)  all arguments can be negative given the right usage.
+          It can be enumerated and can be easily converted to other collection data types too. Used to create lists and create loops.
+
+4. Slice: slice() function is used to create slice object, that can be used to slice collections or sequences.
+          It does not directly slice any collection but kind of stores the slice information in a variable, which .
+          e.g. temp : slice = slice(start, end, skip) and collection[temp] to slice.
+          If we want to omit an argument (just like in slicing [::2]) we will have to use None. e.g. slice(None, None, 2)
+          This helps if we want to slice multiple collections similarly.
