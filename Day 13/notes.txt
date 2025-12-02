@@ -22,3 +22,5 @@ repr() function returns the representation of class,
 print() function prints the string version of a varible or value.
 
 There are many different dunder methods for different tasks (__add__, __mul__, etc).
+
+Note: Generally when we have to create a lot of objects of a class, we use a function to create those objects, and that function should be outside the class.
