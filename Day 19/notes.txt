@@ -1,0 +1,26 @@
+Doc Strings: These are multiline string use for documentation of our code.
+             These can be used at a function level, class level or even at a modular level.
+             We can explain definition, arguments, return values, examples, etc. in our doc strings.
+             func.__doc__ or help(func) can be used to access the doc string and read documentation.
+
+Assert: It is used to assert a value is valid during the development of our program.
+        By using assert we can enforce values to meet our constraints, and conduct validation.
+        It throws an Assertion Error if the condition in assert fails.
+        e.g. assert 0 <= marks <= 100, f"Invalid Marks: {marks}"
+        It is mostly used during development and replaced with error handling when deploying to production.
+        We can use: python -o file.py to run the file in optimised mode and skip all assert conditions.
+
+Multiple Assignment: We can assign multiple values to multiple variables on a single line using this technique.
+                     However if we do this, we won't be able to use type annotations.
+                     e.g. a, b = 12, 16
+                     If we try to unpack and number of variables and values do not match on both sides, program will throw a ValueError.
+                     We can also do this with other collections than just tuple, like a, b = {key: value, key: value}
+                     note: if we unpack dictionaries the variables will hold keys not values (use .values() for that).
+                     We can also unpack in various other ways using * prefix to variable when we want to assign multiple values to that variable.
+                     e.g. first, *other = (1, 2, 3, 4, 5) => first = 1, other = [2, 3, 4, 5], other will be assigned a list of values.
+                     e.g. first, *middle, last = (1, 2, 3, 4, 5) => first = 1, middle = [2, 3, 4], last = 5.
+
+is vs ==: We know that "is" keyword is used to compare two object and "==" is used to compare two values.
+          However when we do that sometimes with small values "is" can return true and even id function can return same id for objects which are different but hold same values.
+          This is due to python's internal optimization and caching.
+          Therefore, it is always advised to "is" for identity checks and "==" operator for comparing values in different objects.
