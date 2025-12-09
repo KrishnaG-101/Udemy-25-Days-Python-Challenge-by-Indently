@@ -1,0 +1,16 @@
+Lambda Functions: these are nameless functions which we can use with high level functions directly.
+                  syntax: lambda x: x**2  this will take a argument x and return square of x.
+                  we can also create one line functions by assigning lambda to a variable, func = lambda a, b: a + b, but it is unconvetional to do so.
+                  lambda functions are for simple operations, we cannot use type annotations, return types, and return with lambda functions.
+                  lambda functions are useful to write simple functions that will be used only once but they only allow use of a single expression.
+
+Walrus Operator: walrus operator is used to assign a value while inside an expression.
+                 e.g. if (word_length := len(word)) > 12: ... this will run word_length = len(word) and check the condition word_length > 12 at the same time.
+                 walrus operator is a good simple trick of defining a variable and at the same time using it, but it should not hurt readability.
+                 e.g. while (start_choice := input("Enter your choice: ").lower()) != "exit": ...
+
+Enums: Enums allow us to define similar constants together, it makes our code error prone and allows for better representation of real world values.
+       Enum is a class inside enum module which can be used to create child classes for representation of a choice (color, gender, etc.), which can be used instead of strings.
+       printing an enum returns the enum itself to access the enum name and value we use .name and .value attributes to access them. To get all enums we use list(<class_name>).
+       e.g. class Color(Enum):/ Color.RED = "Red"  print(Color.RED) -> Color.RED  print(Color.RED.name) -> RED  print(Color.RED.value) -> whatever value we set ("Red").
+       We can use auto from the same to auto assign values, the auto will increment value automatically from the previous value assigned whenever used (default: 1).
