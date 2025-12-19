@@ -1,0 +1,42 @@
+[
+  {
+    "response": "Hello!",
+    "words": ["hello", "hi", "hey", "sup", "heyo"],
+    "required_words": []
+  },
+  {
+    "response": "See you!",
+    "words": ["bye", "goodbye"],
+    "required_words": []
+  },
+  {
+    "response": "I'm doing fine, and you?",
+    "words": ["how", "are", "you", "doing"],
+    "required_words": ["how"]
+  },
+  {
+    "response": "You're welcome!",
+    "words": ["thank", "thanks"],
+    "required_words": []
+  },
+  {
+    "response": "Same!",
+    "words": ["i", "love", "coding"],
+    "required_words": ["love", "coding"]
+  },
+  {
+    "response": "Python is my favourite programming language!",
+    "words": ["your", "favourite", "favorite", "programming", "language"],
+    "required_words": ["your", "programming", "language"]
+  },
+  {
+    "response": "I am glad to hear that! How may i help you?",
+    "words": ["i", "am", "good", "fine", "great"],
+    "required_words": ["i", "am"]
+  },
+  {
+    "response": "What can i do to improve your mood?",
+    "words": ["i", "am", "sad", "upset", "unhappy", "angry", "disappointed"],
+    "required_words": ["i", "am"]
+  }
+]

@@ -1,0 +1,25 @@
+Match-Case: Match-Case is a simple syntax which allows us to conduct pattern matching in our code.
+            It is very similar to writing if-else, but will advance capabilities for pattern matching.
+            We can given multiple conditions in one case by using the "|" (pipe) symbol.
+            We can even use temporary variables in case conditions for pattern matching.
+            e.g. case (x, 0)... would work even when x is not defined (any value passed in place will be taken by x). We can use it inside the block.
+            e.g. match point:
+                     case (0, 0):
+                         print("Origin")
+                     case (x, 0):
+                         print("Point on X-axis at {x}")
+                     case (0, y):
+                         print("Point on Y-axis at {y}")
+                     case (x, y):
+                         print("Point at {x}, {y}")
+            Also in this example we need not give a wild-card (default) case block to handle things.
+            We can use the unzip and multiple assignments technique for further pattern matching. e.g. case "find", *images:...
+            We can also use conditions in case statements for adding guards and ensuring correct condition being met.
+
+LRU Cache: This is a special decorator in python which allows for faster and efficient execution of our code.
+           LRU stands for Least Recently Used, it stores function calls in memory to avoid recalculation for the same input.
+           This is done by storing recent function calls and results in memory and using them to give output when same set of arguments are passed.
+           This also means we only get the result, i.e. return statement and function code does not run (no calculations but not print statements.)
+           Default maxsize = 128
+           .cache_info() returns (hits, misses, maxsize, currsize) , .cache_parameters() returns {maxsize, typed}, .cache_clear() empties the cache.
+           typed argument decides whether similar values will be treated differently or not, if True than 1 & 1.0 will be treated different values otherwise not.
