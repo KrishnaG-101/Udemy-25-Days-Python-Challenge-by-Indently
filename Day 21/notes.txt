@@ -1,0 +1,54 @@
+Generators: Generators are memory efficient collections which are used to store large volume of items.
+            We use them to allow efficient memory usage when we are accessing values one after the other.
+            We use yield and next() to implement generators.
+            yield simply returns one value from the generator, and next() is used to access current value from generator.
+            we initiate generator like this. def gen_num() -> Generator[int, Any, None]:... numbers = gen_num()
+                                                 print(next(numbers))
+            We don't use a collection inside a generator, only memory efficient ones like range, filter, map, etc.
+            We can't modify the data inside generators, we can't perform membership checks (searching will exhaust).
+            Generators are exhuastible. Once a value is accessed from the generator, it is gone.
+            Highly used in real-time and concurrent applications.
+
+yield: used to yield an item from the generator when asked.
+       The below code will allow accessing three values from the generator. If we try to access more, it will throw an error.
+       yield 1
+       yield 2
+       yield 3
+
+next(): used to iterate over an iterable or get an item from the generator.
+
+Any: We have seen Any already, it is used to take place of any datatype (str, int, float, etc.)
+     Any is used for type annotations to describe that the value in context can be of any datatype.
+     Syntax: def func(a : Any, b : Any) -> Any: ...
+
+Callable: Callable is a type present in typing module, which refers to anything that is callable, e.g. functions, lambda, etc.
+          Syntax: x : Callable[[<parameter_types>], <return_type>] = lambda x :...  e.g. x : Callable[[str], str] = lambda x : x.upper()
+          We can use ... to describe any amount of arguments of any type. e.g. type Func = Callable[..., Any].
+          Callable are used when creating decorators.
+
+Type Alias: It is a technique to give alias for a datatype in context, for type annotations.
+            It is good to use when our type annotation is too long, like tuple[str, str, int, int], etc.
+            E.g. type StrInt = str | int  now we can use "StrInt" in place of "str | int" for type annotations anywhere in our code.
+
+Decorators: Decorators tell python to treat functions in special ways and give them additional functionality without changing the original function.
+            These take function as an input and give function as an output.
+            We take a function input, use the wrapper to wrap the function and add additional functionalities, run the function in the wrapper (The wrapper returns what the function returns), and return the wrapper.
+            e.g. def verbose(func : Func) -> Func:
+                     @wraps(func)
+                     def wrapper(*args : Any, **kwargs : Any) -> Any:
+                         print(f"Calling \"{func.__name__}(args={args}, kwargs={kwargs})\"")
+                         result : Any = func(*args, **kwargs)
+                         print(f"\"{func.__name__}\" returned {result}")
+                         return result
+                     
+                     return wrapper
+            
+            To pass parameters to a decorator, we create an extra layer outside the decorator, i.e. nesting it inside and taking parameter inputs.
+            e.g. def repeat(n : int) -> Callable[[Func], Func]: ...
+
+Wraps: @wraps is a decorator which allows us to make sure that the function that we will be using our decorator on holds its attributes and does not change.
+       Its a way of telling python that we are wrapping a function.
+       It ensures all the information of a function stays bound to that function.
+       If we don't use wraps, our decorator will also update the function.__name__ and function.__docstring__ properties.
+       However, the inlay type annotations still get updated if we use vague type annotations inside the decorator. So, we can remove type annotations in the decorator to avoid that.
+       We can handle that as well using generics in python.
