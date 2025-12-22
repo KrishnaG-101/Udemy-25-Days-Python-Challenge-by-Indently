@@ -1,0 +1,21 @@
+Congratulations! on completing the course.
+
+Apply what you have learnt.
+Your only motive should be to get higher from this.
+
+Create projects and write scripts everyday.
+Implement your interesting ideas and create programs.
+
+Even if you don't know everything (you won't ever), just keep going.
+Nothing is perfect, and nothing is meant to be perfect, it just needs to meet the requirements.
+
+Its a life long learning process, you code everyday, you learn everyday.
+
+Keep experimenting, building and having fun with python.
+
+Advice: Spend a few minutes everyday exploring python documentation, read and solidify.
+        Google & research when stuck, do not worry or lose motivation.
+        AI tools are amazing utilize their capabilities in the right manner, but do not develop dependancy upon them.
+        Focus on learning, thinking, do not rely on things, struggle and learn! Always double check the code, do not copy paste things.
+        Use sources that are realible, and always check before using any output given from AI.
+        Remember to stay critical, curious and don't skip the learning process.
